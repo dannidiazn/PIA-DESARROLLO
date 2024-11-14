@@ -1,0 +1,143 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PIA.ViewModels"
+             x:Class="PIA.View.PerfilPage"
+             Title="Perfil"
+             BackgroundColor="#F0F2F5">
+
+    <ContentPage.BindingContext>
+        <vm:PerfilViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+
+            <ScrollView Grid.Row="0">
+                <StackLayout Padding="20" Spacing="15">
+
+                    <Label Text="Perfil de Usuario"
+                           FontSize="26"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           TextColor="#333"
+                           Margin="0,10,0,20" />
+
+                    <Frame WidthRequest="120" HeightRequest="120"
+                           CornerRadius="60"
+                           Padding="0"
+                           IsClippedToBounds="True"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           BackgroundColor="#DDD">
+                        <Image Source="{Binding ProfileImageUrl}" Aspect="AspectFill" WidthRequest="120" HeightRequest="120"/>
+                    </Frame>
+
+                    <Button Text="Cambiar Imagen de Perfil"
+                            Command="{Binding UploadProfileImageCommand}"
+                            BackgroundColor="#4CAF50"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            CornerRadius="10"
+                            HeightRequest="40"
+                            HorizontalOptions="Center" />
+
+                    <Frame Padding="20"
+                           HasShadow="True"
+                           CornerRadius="15"
+                           BackgroundColor="White">
+                        <StackLayout Spacing="10">
+                            <Label Text="Nombre:" FontAttributes="Bold" TextColor="#555" />
+                            <Label Text="{Binding Nombre}" FontSize="18" TextColor="#333" />
+
+                            <Label Text="Apellido:" FontAttributes="Bold" TextColor="#555" />
+                            <Label Text="{Binding Apellido}" FontSize="18" TextColor="#333" />
+
+                            <Label Text="Edad:" FontAttributes="Bold" TextColor="#555" />
+                            <Label Text="{Binding Edad}" FontSize="18" TextColor="#333" />
+
+                            <Label Text="Correo Electrónico:" FontAttributes="Bold" TextColor="#555" />
+                            <Label Text="{Binding Email}" FontSize="18" TextColor="#333" />
+
+                            <Label Text="Teléfono:" FontAttributes="Bold" TextColor="#555" />
+                            <Label Text="{Binding Telefono}" FontSize="18" TextColor="#333" />
+                        </StackLayout>
+                    </Frame>
+
+                    <Button Text="Editar Perfil"
+                            Command="{Binding EditProfileCommand}"
+                            BackgroundColor="#4CAF50"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            CornerRadius="10"
+                            HeightRequest="50"
+                            Margin="0,20,0,0"
+                            HorizontalOptions="FillAndExpand" />
+
+                    <Button Text="Cerrar Sesión"
+                            Command="{Binding LogoutCommand}"
+                            BackgroundColor="#FF6347"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            CornerRadius="10"
+                            HeightRequest="50"
+                            HorizontalOptions="FillAndExpand" />
+
+                </StackLayout>
+            </ScrollView>
+
+            <Grid RowSpacing="0" ColumnSpacing="20"
+                  BackgroundColor="#FFFFFF" HeightRequest="60"
+                  VerticalOptions="End"
+                  Padding="10"
+                  Grid.Row="1">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <ImageButton Source="home_icon.png"
+                             Command="{Binding GoToHomePageCommand}"
+                             BackgroundColor="Transparent"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Grid.Column="0" />
+
+                <ImageButton Source="public_recipes_icon.png"
+                             Command="{Binding GoToRecetarioPublicoCommand}"
+                             BackgroundColor="Transparent"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Grid.Column="1" />
+
+                <ImageButton Source="favorites_icon.png"
+                             Command="{Binding GoToFavoritosCommand}"
+                             BackgroundColor="Transparent"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Grid.Column="2" />
+
+                <ImageButton Source="profile_icon.png"
+                             Command="{Binding GoToPerfilCommand}"
+                             BackgroundColor="Transparent"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Grid.Column="3" />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

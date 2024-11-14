@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PIA.ViewModels"
+             x:Class="PIA.View.EditProfilePage"
+             Title="Editar Perfil"
+             BackgroundColor="#F0F2F5">
+
+    <ContentPage.BindingContext>
+        <vm:EditProfileViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="20" Spacing="15">
+
+            <Label Text="Editar Perfil de Usuario"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#333" />
+
+            <Entry Placeholder="Nombre"
+                   Text="{Binding Nombre}" />
+            <Entry Placeholder="Apellido"
+                   Text="{Binding Apellido}" />
+            <Entry Placeholder="Edad"
+                   Keyboard="Numeric"
+                   Text="{Binding Edad}" />
+            <Entry Placeholder="Correo Electrónico"
+                   Keyboard="Email"
+                   Text="{Binding Email}" />
+            <Entry Placeholder="Teléfono"
+                   Keyboard="Telephone"
+                   Text="{Binding Telefono}" />
+
+            
+            <Button Text="Guardar Cambios"
+                    Command="{Binding SaveProfileCommand}"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    CornerRadius="5"
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand" />
+
+           
+            <Button Text="Cancelar"
+                    Command="{Binding CancelCommand}"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    CornerRadius="5"
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand" />
+
+            <Button Text="Eliminar Cuenta"
+                    Command="{Binding DeleteAccountCommand}"
+                    BackgroundColor="#E53935"
+                    TextColor="White"
+                    CornerRadius="5"
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

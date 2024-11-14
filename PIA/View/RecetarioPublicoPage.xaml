@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PIA.ViewModels"
+             x:Class="PIA.View.RecetarioPublicoPage"
+             Title="Recetario Público"
+             BackgroundColor="#F0F2F5">
+
+    <ContentPage.BindingContext>
+        <vm:RecetarioPublicoViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+
+            <ScrollView Grid.Row="0">
+                <StackLayout Padding="15" Spacing="10">
+
+                    <Label Text="Recetario Público"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           TextColor="#333" />
+
+                    <CollectionView ItemsSource="{Binding PublicRecipes}"
+                                    SelectionMode="Single"
+                                    Margin="0,10,0,0">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame Padding="20"
+                                       Margin="10,15,10,15"
+                                       HasShadow="True"
+                                       CornerRadius="10"
+                                       BackgroundColor="White">
+                                    <StackLayout Spacing="10">
+
+                                        <Image Source="{Binding ImageUrl}"
+                                               Aspect="AspectFill"
+                                               HeightRequest="100"
+                                               WidthRequest="100"
+                                               HorizontalOptions="Center" />
+
+                                        <Label Text="{Binding Nombre}"
+                                               FontSize="18"
+                                               FontAttributes="Bold"
+                                               TextColor="#333" />
+
+                                        <Label Text="{Binding Instrucciones}"
+                                               FontSize="14"
+                                               TextColor="#666"
+                                               MaxLines="2"
+                                               LineBreakMode="TailTruncation" />
+
+                                        <Button Text="Ver Detalle"
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:RecetarioPublicoViewModel}}, Path=ViewRecipeDetailCommand}"
+                                                CommandParameter="{Binding .}"
+                                                BackgroundColor="#4CAF50"
+                                                TextColor="White"
+                                                FontAttributes="Bold"
+                                                CornerRadius="10"
+                                                HeightRequest="50"
+                                                Margin="0,20,0,0"
+                                                HorizontalOptions="FillAndExpand" />
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </ScrollView>
+
+            <Grid Grid.Row="1" ColumnSpacing="20" RowSpacing="0" Padding="10"
+                  BackgroundColor="#FFFFFF" HeightRequest="60"
+                  VerticalOptions="End">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <ImageButton Source="home_icon.png"
+                             Command="{Binding GoToHomePageCommand}"
+                             BackgroundColor="Transparent"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Grid.Column="0" />
+
+                <ImageButton Source="public_recipes_icon.png"
+                             Command="{Binding GoToRecetarioPublicoCommand}"
+                             BackgroundColor="Transparent"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Grid.Column="1" />
+
+                <ImageButton Source="favorites_icon.png"
+                             Command="{Binding GoToFavoritosCommand}"
+                             BackgroundColor="Transparent"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Grid.Column="2" />
+
+                <ImageButton Source="profile_icon.png"
+                             Command="{Binding GoToPerfilCommand}"
+                             BackgroundColor="Transparent"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Grid.Column="3" />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PIA.View.LoginPage"
+             BackgroundColor="#F0F2F5">
+    <ContentPage.Content>
+        <StackLayout Padding="30" VerticalOptions="CenterAndExpand" Spacing="20">
+            <Image Source="logo.png" HeightRequest="250" HorizontalOptions="Center" />
+
+            <Label Text="Bienvenido"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="#333"
+                   HorizontalOptions="Center" />
+
+            <Frame HasShadow="True" CornerRadius="10" Padding="10" BackgroundColor="White">
+                <Entry Placeholder="Correo electrónico"
+                       Text="{Binding Email}"
+                       Keyboard="Email"
+                       FontSize="16"
+                       TextColor="#333" />
+            </Frame>
+
+            <Frame HasShadow="True" CornerRadius="10" Padding="10" BackgroundColor="White">
+                <Entry Placeholder="Contraseña"
+                       Text="{Binding Password}"
+                       IsPassword="True"
+                       FontSize="16"
+                       TextColor="#333" />
+            </Frame>
+
+            <Button Text="Iniciar Sesión"
+                    Command="{Binding LoginCommand}"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    FontSize="18"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand" />
+
+            <Button Text="¿Olvidaste tu contraseña?"
+                    Command="{Binding ForgotPasswordCommand}"
+                    BackgroundColor="Transparent"
+                    TextColor="#4CAF50"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    Padding="0"
+                    HorizontalOptions="Center" />
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,20,0,0">
+                <Label Text="¿No tienes cuenta?"
+                       FontSize="14"
+                       TextColor="#666" />
+                <Button Text="Regístrate"
+                        Command="{Binding NavigateToRegisterCommand}"
+                        BackgroundColor="Transparent"
+                        TextColor="#4CAF50"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Padding="0" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

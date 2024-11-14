@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PIA.View.RegisterPage"
+             BackgroundColor="#F0F2F5">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="30" VerticalOptions="CenterAndExpand" Spacing="20">
+
+                <Label Text="Crear Cuenta"
+                       FontSize="26"
+                       FontAttributes="Bold"
+                       TextColor="#333"
+                       HorizontalOptions="Center" 
+                       Margin="0,0,0,20"/>
+
+                <Frame HasShadow="True" CornerRadius="10" Padding="10" BackgroundColor="White">
+                    <Entry Placeholder="Nombre"
+                           Text="{Binding Nombre}"
+                           FontSize="16"
+                           TextColor="#333" />
+                </Frame>
+
+                <Frame HasShadow="True" CornerRadius="10" Padding="10" BackgroundColor="White">
+                    <Entry Placeholder="Apellido"
+                           Text="{Binding Apellido}"
+                           FontSize="16"
+                           TextColor="#333" />
+                </Frame>
+
+                <Frame HasShadow="True" CornerRadius="10" Padding="10" BackgroundColor="White">
+                    <Entry Placeholder="Edad"
+                           Text="{Binding Edad}"
+                           Keyboard="Numeric"
+                           FontSize="16"
+                           TextColor="#333" />
+                </Frame>
+
+                <Frame HasShadow="True" CornerRadius="10" Padding="10" BackgroundColor="White">
+                    <Entry Placeholder="Correo electrónico"
+                           Text="{Binding Email}"
+                           Keyboard="Email"
+                           FontSize="16"
+                           TextColor="#333" />
+                </Frame>
+
+                <Frame HasShadow="True" CornerRadius="10" Padding="10" BackgroundColor="White">
+                    <Entry Placeholder="Teléfono"
+                           Text="{Binding Telefono}"
+                           Keyboard="Telephone"
+                           FontSize="16"
+                           TextColor="#333" />
+                </Frame>
+
+                <Frame HasShadow="True" CornerRadius="10" Padding="10" BackgroundColor="White">
+                    <Entry Placeholder="Contraseña"
+                           Text="{Binding Password}"
+                           IsPassword="True"
+                           FontSize="16"
+                           TextColor="#333" />
+                </Frame>
+
+                <Button Text="Registrarse"
+                        Command="{Binding RegisterCommand}"
+                        BackgroundColor="#4CAF50"
+                        TextColor="White"
+                        FontSize="18"
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="0,20,0,0"/>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10,0,0">
+                    <Label Text="¿Ya tienes cuenta?"
+                           FontSize="14"
+                           TextColor="#666" />
+                    <Button Text="Inicia sesión"
+                            Command="{Binding NavigateToLoginCommand}"
+                            BackgroundColor="Transparent"
+                            TextColor="#4CAF50"
+                            FontAttributes="Bold"
+                            FontSize="14"
+                            Padding="0"
+                            Margin="5,0,0,0"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

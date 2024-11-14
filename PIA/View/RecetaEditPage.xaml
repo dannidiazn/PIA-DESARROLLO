@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PIA.View.RecetaEditPage"
+             Title="Editar Receta"
+             BackgroundColor="#F0F2F5">
+    <ContentPage.Content>
+        <StackLayout Padding="10" Spacing="10">
+
+            <Label Text="Editar Receta"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Entry Placeholder="Nombre de la receta"
+                   Text="{Binding Recipe.Nombre}" />
+
+            <Editor Placeholder="Ingredientes (separados por comas)"
+                    Text="{Binding IngredientesText}" />
+
+            <Editor Placeholder="Instrucciones"
+                    Text="{Binding Recipe.Instrucciones}" />
+
+            <Button Text="Seleccionar Imagen"
+                    Command="{Binding PickImageCommand}"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White" />
+            
+            <Image Source="{Binding SelectedImage}"
+                   WidthRequest="100"
+                   HeightRequest="100"
+                   Aspect="AspectFill"
+                   HorizontalOptions="Center" />
+
+            <Button Text="Guardar Cambios"
+                    Command="{Binding SaveChangesCommand}"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White" />
+
+            <Button Text="Eliminar Receta"
+                    Command="{Binding DeleteRecipeCommand}"
+                    BackgroundColor="#E53935"
+                    TextColor="White" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
